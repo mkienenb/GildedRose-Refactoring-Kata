@@ -44,11 +44,6 @@ class GildedRose {
                 }
             } else if (itemMatches(item, ITEM__SULFURAS)) {
                 // We do nothing
-                if (item.sellIn < 0) {
-                }
-                // ITEM__SULFURAS never changes sellIN,
-                // so this would only be reached if entered with a negative SellIn amount
-                // This can be removed if SellIn is never negative
             } else {
                 if (item.quality > 0) {
                     decreaseQualityByOne(item);
