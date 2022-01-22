@@ -14,7 +14,8 @@ public final class ItemStepDefinitions {
     private Item[] items = new Item[1];
     private GildedRose app;
 
-    protected void some_item_has_sell_in_of_and_the_item_has_quality_of(String itemName, Integer sellIn, Integer quality) {
+    protected void some_item_has_sell_in_of_and_the_item_has_quality_of(String itemName, Integer sellIn,
+            Integer quality) {
         items[0] = new Item(itemName, sellIn, quality);
         app = new GildedRose(items);
     }
@@ -33,7 +34,7 @@ public final class ItemStepDefinitions {
     public void i_should_get_an_item_named(String expectedName) {
         assertThat(app.items[0].name).as("name for first item").isEqualTo(expectedName);
     }
-    
+
     @Given("The normal item has SellIn of {int} And the item has Quality of {int}")
     public void the_normal_item_has_sell_in_of_and_the_item_has_quality_of(Integer sellIn, Integer quality) {
         some_item_has_sell_in_of_and_the_item_has_quality_of("foo", sellIn, quality);
@@ -64,4 +65,3 @@ public final class ItemStepDefinitions {
         some_item_has_sell_in_of_and_the_item_has_quality_of(ITEM__BACKSTAGE_PASSES, sellIn, quality);
     }
 }
-
