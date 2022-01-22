@@ -5,3 +5,8 @@ obj
 vendor
 .idea
 *.iml
+/Java-Cucumber/.settings/
+/Java-Cucumber/.classpath
+/Java-Cucumber/.project
+/.settings/
+/.project
