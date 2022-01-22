@@ -25,8 +25,8 @@ class GildedRose {
 			    }
 			}
 
-			if (item.sellIn < 6) {
-			    if (item.quality < 50) {
+			if (item.quality < 50) {
+			    if (item.sellIn < 6) {
 				increaseQualityByOne(item);
 			    }
 			}
