@@ -7,62 +7,61 @@ class GildedRose {
     Item[] items;
 
     public GildedRose(Item[] items) {
-        this.items = items;
+	this.items = items;
     }
 
     public void updateQuality() {
-        for (int i = 0; i < items.length; i++) {
-            Item item = items[i];
+	for (int i = 0; i < items.length; i++) {
+	    Item item = items[i];
 
-	    if (!itemMatches(item, ITEM__AGED_BRIE)
-                    && !itemMatches(item, ITEM__BACKSTAGE_PASSES)) {
-                if (item.quality > 0) {
-                    if (!itemMatches(item, ITEM__SULFURAS)) {
-                        decreaseQualityByOne(item);
-                    }
-                }
-            } else {
-                if (item.quality < 50) {
-                    increaseQualityByOne(item);
+	    if (!itemMatches(item, ITEM__AGED_BRIE) && !itemMatches(item, ITEM__BACKSTAGE_PASSES)) {
+		if (item.quality > 0) {
+		    if (!itemMatches(item, ITEM__SULFURAS)) {
+			decreaseQualityByOne(item);
+		    }
+		}
+	    } else {
+		if (item.quality < 50) {
+		    increaseQualityByOne(item);
 
-                    if (itemMatches(item, ITEM__BACKSTAGE_PASSES)) {
-                        if (item.sellIn < 11) {
-                            if (item.quality < 50) {
-                                increaseQualityByOne(item);
-                            }
-                        }
+		    if (itemMatches(item, ITEM__BACKSTAGE_PASSES)) {
+			if (item.sellIn < 11) {
+			    if (item.quality < 50) {
+				increaseQualityByOne(item);
+			    }
+			}
 
-                        if (item.sellIn < 6) {
-                            if (item.quality < 50) {
-                                increaseQualityByOne(item);
-                            }
-                        }
-                    }
-                }
-            }
+			if (item.sellIn < 6) {
+			    if (item.quality < 50) {
+				increaseQualityByOne(item);
+			    }
+			}
+		    }
+		}
+	    }
 
-            if (!itemMatches(item, ITEM__SULFURAS)) {
-                decreaseSellInByOne(item);
-            }
+	    if (!itemMatches(item, ITEM__SULFURAS)) {
+		decreaseSellInByOne(item);
+	    }
 
-            if (item.sellIn < 0) {
-                if (!itemMatches(item, ITEM__AGED_BRIE)) {
-                    if (!itemMatches(item, ITEM__BACKSTAGE_PASSES)) {
-                        if (item.quality > 0) {
-                            if (!itemMatches(item, ITEM__SULFURAS)) {
-                                decreaseQualityByOne(item);
-                            }
-                        }
-                    } else {
-                        item.quality = 0;
-                    }
-                } else {
-                    if (item.quality < 50) {
-                        increaseQualityByOne(item);
-                    }
-                }
-            }
-        }
+	    if (item.sellIn < 0) {
+		if (!itemMatches(item, ITEM__AGED_BRIE)) {
+		    if (!itemMatches(item, ITEM__BACKSTAGE_PASSES)) {
+			if (item.quality > 0) {
+			    if (!itemMatches(item, ITEM__SULFURAS)) {
+				decreaseQualityByOne(item);
+			    }
+			}
+		    } else {
+			item.quality = 0;
+		    }
+		} else {
+		    if (item.quality < 50) {
+			increaseQualityByOne(item);
+		    }
+		}
+	    }
+	}
     }
 
     private boolean itemMatches(Item item, String itemName) {
