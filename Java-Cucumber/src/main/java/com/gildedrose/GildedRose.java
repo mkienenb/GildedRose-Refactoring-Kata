@@ -49,11 +49,9 @@ class GildedRose {
 		    }
 		} else if (itemMatches(item, ITEM__BACKSTAGE_PASSES)) {
 		    item.quality = 0;
-		} else {
-		    if (!itemMatches(item, ITEM__SULFURAS)) {
-			if (item.quality > 0) {
-			    decreaseQualityByOne(item);
-			}
+		} else if (!itemMatches(item, ITEM__SULFURAS)) {
+		    if (item.quality > 0) {
+			decreaseQualityByOne(item);
 		    }
 		}
 	    }
