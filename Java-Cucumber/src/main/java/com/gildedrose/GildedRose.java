@@ -40,7 +40,11 @@ class GildedRose {
                 }
             }
 
-            if (itemMatches(item, ITEM__SULFURAS)) {
+            if (itemMatches(item, ITEM__AGED_BRIE)) {
+                decreaseSellInByOne(item);
+            } else if (itemMatches(item, ITEM__BACKSTAGE_PASSES)) {
+                decreaseSellInByOne(item);
+            } else if (itemMatches(item, ITEM__SULFURAS)) {
                 // We do nothing
             } else {
                 decreaseSellInByOne(item);
