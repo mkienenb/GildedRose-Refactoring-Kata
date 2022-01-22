@@ -79,6 +79,12 @@ Feature: Gilded Rose quality
       |      11 |     30 |
       |      49 |     40 |
 
+  Scenario: "Sulfuras", being a legendary item, never has to be sold or decreases in Quality but is there a bug if there's a negative SellIn?
+    Given The Sulfuras item has SellIn of -5 And a Quality of 30
+    When I update the quality
+    Then the item SellIn should be -5
+    And the item Quality should be 30
+
   Scenario: "Backstage passes" quality increases by 1 when there are 11 days or more
     Given The backstage passes item has SellIn of 11 And a Quality of 23
     When I update the quality
