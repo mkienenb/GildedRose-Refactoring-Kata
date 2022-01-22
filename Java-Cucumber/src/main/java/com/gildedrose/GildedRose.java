@@ -19,8 +19,8 @@ class GildedRose {
 		    increaseQualityByOne(item);
 
 		    if (itemMatches(item, ITEM__BACKSTAGE_PASSES)) {
-			if (item.sellIn < 11) {
-			    if (item.quality < 50) {
+			if (item.quality < 50) {
+			    if (item.sellIn < 11) {
 				increaseQualityByOne(item);
 			    }
 			}
