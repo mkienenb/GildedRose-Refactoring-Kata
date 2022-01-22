@@ -45,8 +45,8 @@ class GildedRose {
 	    if (item.sellIn < 0) {
 		if (!itemMatches(item, ITEM__AGED_BRIE)) {
 		    if (!itemMatches(item, ITEM__BACKSTAGE_PASSES)) {
-			if (item.quality > 0) {
-			    if (!itemMatches(item, ITEM__SULFURAS)) {
+			if (!itemMatches(item, ITEM__SULFURAS)) {
+			    if (item.quality > 0) {
 				decreaseQualityByOne(item);
 			    }
 			}
