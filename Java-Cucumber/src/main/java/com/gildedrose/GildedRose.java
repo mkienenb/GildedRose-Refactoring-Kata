@@ -14,10 +14,10 @@ class GildedRose {
         for (int i = 0; i < items.length; i++) {
             Item item = items[i];
 
-	    if (!item.name.equals(ITEM__AGED_BRIE)
-                    && !item.name.equals(ITEM__BACKSTAGE_PASSES)) {
+	    if (!itemMatches(item, ITEM__AGED_BRIE)
+                    && !itemMatches(item, ITEM__BACKSTAGE_PASSES)) {
                 if (item.quality > 0) {
-                    if (!item.name.equals(ITEM__SULFURAS)) {
+                    if (!itemMatches(item, ITEM__SULFURAS)) {
                         decreaseQualityByOne(item);
                     }
                 }
@@ -25,7 +25,7 @@ class GildedRose {
                 if (item.quality < 50) {
                     increaseQualityByOne(item);
 
-                    if (item.name.equals(ITEM__BACKSTAGE_PASSES)) {
+                    if (itemMatches(item, ITEM__BACKSTAGE_PASSES)) {
                         if (item.sellIn < 11) {
                             if (item.quality < 50) {
                                 increaseQualityByOne(item);
@@ -41,15 +41,15 @@ class GildedRose {
                 }
             }
 
-            if (!item.name.equals(ITEM__SULFURAS)) {
+            if (!itemMatches(item, ITEM__SULFURAS)) {
                 decreaseSellInByOne(item);
             }
 
             if (item.sellIn < 0) {
-                if (!item.name.equals(ITEM__AGED_BRIE)) {
-                    if (!item.name.equals(ITEM__BACKSTAGE_PASSES)) {
+                if (!itemMatches(item, ITEM__AGED_BRIE)) {
+                    if (!itemMatches(item, ITEM__BACKSTAGE_PASSES)) {
                         if (item.quality > 0) {
-                            if (!item.name.equals(ITEM__SULFURAS)) {
+                            if (!itemMatches(item, ITEM__SULFURAS)) {
                                 decreaseQualityByOne(item);
                             }
                         }
@@ -63,6 +63,10 @@ class GildedRose {
                 }
             }
         }
+    }
+
+    private boolean itemMatches(Item item, String itemName) {
+	return item.name.equals(itemName);
     }
 
     private void decreaseSellInByOne(Item item) {
