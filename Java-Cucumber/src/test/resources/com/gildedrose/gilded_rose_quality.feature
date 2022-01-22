@@ -22,6 +22,8 @@ Feature: Gilded Rose quality
       |              11 |           10 |             31 |          30 |
       |              13 |           12 |             41 |          40 |
       |               1 |            0 |             61 |          60 |
+      |              17 |           15 |             0  |          -1 |
+      |              19 |           17 |            -1  |          -2 |
 
   Scenario: Checking that normal item quality never goes below zero
     Given The normal item has SellIn of 10 And the item has Quality of 0
@@ -29,11 +31,19 @@ Feature: Gilded Rose quality
     Then the item SellIn should be 9
     And the item Quality should be 0
 
-  Scenario: Checking that normal item quality decreases by two during updates when SellIn is zero
-    Given The normal item has SellIn of 0 And the item has Quality of 6
+  Scenario Outline: Checking that normal item quality decreases by two during updates when SellIn is zero
+    Given The normal item has SellIn of <startingSellIn> And the item has Quality of <startingQuality>
     When I update the quality
-    Then the item SellIn should be -1
-    And the item Quality should be 4
+    Then the item SellIn should be <finalSellIn>
+    #          which is two less
+    And the item Quality should be <finalQuality>
+
+    #          which is two less
+    #
+    Examples: 
+      | startingQuality | finalQuality | startingSellIn | finalSellIn |
+      |              17 |           15 |             0  |          -1 |
+      |              19 |           17 |            -1  |          -2 |
 
   Scenario Outline: "Aged Brie" actually increases in Quality the older it gets
     Given The aged brie item has SellIn of <startingSellIn> And a Quality of <startingQuality>
