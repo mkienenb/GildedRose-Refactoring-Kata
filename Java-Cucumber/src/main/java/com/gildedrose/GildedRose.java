@@ -14,7 +14,11 @@ class GildedRose {
 	for (int i = 0; i < items.length; i++) {
 	    Item item = items[i];
 
-	    if (itemMatches(item, ITEM__AGED_BRIE) || itemMatches(item, ITEM__BACKSTAGE_PASSES)) {
+	    if (itemMatches(item, ITEM__AGED_BRIE)) {
+		if (item.quality < 50) {
+		    increaseQualityByOne(item);
+		}
+	    } else if (itemMatches(item, ITEM__BACKSTAGE_PASSES)) {
 		if (item.quality < 50) {
 		    increaseQualityByOne(item);
 
