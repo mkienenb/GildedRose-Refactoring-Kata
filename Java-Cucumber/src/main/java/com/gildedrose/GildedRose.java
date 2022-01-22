@@ -19,6 +19,11 @@ class GildedRose {
                     increaseQualityByOne(item);
                 }
                 decreaseSellInByOne(item);
+                if (item.sellIn < 0) {
+                    if (item.quality < 50) {
+                        increaseQualityByOne(item);
+                    }
+                }
             } else if (itemMatches(item, ITEM__BACKSTAGE_PASSES)) {
                 if (item.quality < 50) {
                     increaseQualityByOne(item);
@@ -34,32 +39,21 @@ class GildedRose {
                     }
                 }
                 decreaseSellInByOne(item);
-            } else if (itemMatches(item, ITEM__SULFURAS)) {
-                // We do nothing
-            } else {
-                if (item.quality > 0) {
-                    decreaseQualityByOne(item);
-                }
-                decreaseSellInByOne(item);
-            }
-
-            if (itemMatches(item, ITEM__AGED_BRIE)) {
-                if (item.sellIn < 0) {
-                    if (item.quality < 50) {
-                        increaseQualityByOne(item);
-                    }
-                }
-            } else if (itemMatches(item, ITEM__BACKSTAGE_PASSES)) {
                 if (item.sellIn < 0) {
                     item.quality = 0;
                 }
             } else if (itemMatches(item, ITEM__SULFURAS)) {
+                // We do nothing
                 if (item.sellIn < 0) {
                 }
                 // ITEM__SULFURAS never changes sellIN,
                 // so this would only be reached if entered with a negative SellIn amount
                 // This can be removed if SellIn is never negative
             } else {
+                if (item.quality > 0) {
+                    decreaseQualityByOne(item);
+                }
+                decreaseSellInByOne(item);
                 if (item.sellIn < 0) {
                     if (item.quality > 0) {
                         decreaseQualityByOne(item);
