@@ -97,11 +97,29 @@ Feature: Gilded Rose quality
     Then the item SellIn should be 9
     And the item Quality should be 33
 
-  Scenario: "Backstage passes" quality increases by 3 when there are 5 days or less but
+  Scenario: "Backstage passes" quality increases by 1 when there are 10 days or less and quality is 49
+    Given The backstage passes item has SellIn of 10 And a Quality of 49
+    When I update the quality
+    Then the item SellIn should be 9
+    And the item Quality should be 50
+
+  Scenario: "Backstage passes" quality increases by 3 when there are 5 days or less
     Given The backstage passes item has SellIn of 3 And a Quality of 41
     When I update the quality
     Then the item SellIn should be 2
     And the item Quality should be 44
+
+  Scenario: "Backstage passes" quality increases by 1 when there are 5 days or less and quality is 49
+    Given The backstage passes item has SellIn of 3 And a Quality of 49
+    When I update the quality
+    Then the item SellIn should be 2
+    And the item Quality should be 50
+
+  Scenario: "Backstage passes" quality increases by 2 when there are 5 days or less and quality is 48
+    Given The backstage passes item has SellIn of 3 And a Quality of 48
+    When I update the quality
+    Then the item SellIn should be 2
+    And the item Quality should be 50
 
   Scenario: "Backstage passes" quality drops to 0 after the concert
     Given The backstage passes item has SellIn of -1 And a Quality of 11
