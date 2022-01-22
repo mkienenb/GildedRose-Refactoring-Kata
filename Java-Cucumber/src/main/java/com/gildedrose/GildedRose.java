@@ -31,7 +31,8 @@ class GildedRose {
 		    }
 		}
 	    } else {
-		if (!itemMatches(item, ITEM__SULFURAS)) {
+		if (itemMatches(item, ITEM__SULFURAS)) {
+		} else {
 		    if (item.quality > 0) {
 			decreaseQualityByOne(item);
 		    }
