@@ -18,23 +18,23 @@ class GildedRose {
                     && !item.name.equals(ITEM__BACKSTAGE_PASSES)) {
                 if (item.quality > 0) {
                     if (!item.name.equals(ITEM__SULFURAS)) {
-                        item.quality = item.quality - 1;
+                        decreaseQualityByOne(item);
                     }
                 }
             } else {
                 if (item.quality < 50) {
-                    item.quality = item.quality + 1;
+                    increaseQualityByOne(item);
 
                     if (item.name.equals(ITEM__BACKSTAGE_PASSES)) {
                         if (item.sellIn < 11) {
                             if (item.quality < 50) {
-                                item.quality = item.quality + 1;
+                                increaseQualityByOne(item);
                             }
                         }
 
                         if (item.sellIn < 6) {
                             if (item.quality < 50) {
-                                item.quality = item.quality + 1;
+                                increaseQualityByOne(item);
                             }
                         }
                     }
@@ -42,7 +42,7 @@ class GildedRose {
             }
 
             if (!item.name.equals(ITEM__SULFURAS)) {
-                item.sellIn = item.sellIn - 1;
+                decreaseSellInByOne(item);
             }
 
             if (item.sellIn < 0) {
@@ -50,7 +50,7 @@ class GildedRose {
                     if (!item.name.equals(ITEM__BACKSTAGE_PASSES)) {
                         if (item.quality > 0) {
                             if (!item.name.equals(ITEM__SULFURAS)) {
-                                item.quality = item.quality - 1;
+                                decreaseQualityByOne(item);
                             }
                         }
                     } else {
@@ -58,10 +58,22 @@ class GildedRose {
                     }
                 } else {
                     if (item.quality < 50) {
-                        item.quality = item.quality + 1;
+                        increaseQualityByOne(item);
                     }
                 }
             }
         }
+    }
+
+    private void decreaseSellInByOne(Item item) {
+	item.sellIn = item.sellIn - 1;
+    }
+
+    private void decreaseQualityByOne(Item item) {
+	item.quality = item.quality - 1;
+    }
+
+    private void increaseQualityByOne(Item item) {
+	item.quality = item.quality + 1;
     }
 }
