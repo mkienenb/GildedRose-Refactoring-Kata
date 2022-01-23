@@ -1,6 +1,8 @@
 package com.gildedrose;
 
 class GildedRose {
+    private static final int MAXIMUM_QUALITY = 50;
+    private static final int MINIMUM_QUALITY = 0;
     private static final String ITEM__AGED_BRIE = "Aged Brie";
     private static final String ITEM__BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert";
     private static final String ITEM__SULFURAS = "Sulfuras, Hand of Ragnaros";
@@ -52,13 +54,13 @@ class GildedRose {
     }
 
     private void decreaseQualityByOneIfGreaterThanMin(Item item) {
-        if (item.quality > 0) {
+        if (item.quality > MINIMUM_QUALITY) {
             item.quality = item.quality - 1;
         }
     }
 
     private void increaseQualityByOneIfLessThanMax(Item item) {
-        if (item.quality < 50) {
+        if (item.quality < MAXIMUM_QUALITY) {
             increaseQualityByOne(item);
         }
     }
