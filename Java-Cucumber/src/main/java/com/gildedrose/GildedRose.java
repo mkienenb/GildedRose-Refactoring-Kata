@@ -38,8 +38,8 @@ class GildedRose {
             } else if (itemMatches(item, ITEM__SULFURAS)) {
                 // We do nothing
             } else {
-                decreaseQualityByOneIfGreaterThanMin(item);
                 decreaseSellInByOne(item);
+                decreaseQualityByOneIfGreaterThanMin(item);
                 if (item.sellIn < 0) {
                     decreaseQualityByOneIfGreaterThanMin(item);
                 }
