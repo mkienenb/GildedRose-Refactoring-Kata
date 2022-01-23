@@ -54,9 +54,7 @@ class GildedRose {
     }
 
     private void decreaseQualityByOneIfGreaterThanMin(Item item) {
-        if (item.quality > MINIMUM_QUALITY) {
-            item.quality = item.quality - 1;
-        }
+        item.quality = Math.max(item.quality - 1, MINIMUM_QUALITY);
     }
 
     private void increaseQualityByOneIfLessThanMax(Item item) {
