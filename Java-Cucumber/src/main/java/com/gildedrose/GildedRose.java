@@ -37,7 +37,7 @@ class GildedRose {
                     item.quality = 0;
                 }
             } else if (itemMatches(item, ITEM__SULFURAS)) {
-                // We do nothing
+                // Nothing happens
             } else {
                 decreaseSellInByOne(item);
                 if (item.sellIn < 0) {
