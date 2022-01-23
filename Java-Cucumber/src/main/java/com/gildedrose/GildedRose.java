@@ -58,9 +58,7 @@ class GildedRose {
     }
 
     private void increaseQualityByOneIfLessThanMax(Item item) {
-        if (item.quality < MAXIMUM_QUALITY) {
-            item.quality = item.quality + 1;
-        }
+        item.quality = Math.min(item.quality + 1, MAXIMUM_QUALITY);
     }
 
     private boolean itemMatches(Item item, String itemName) {
