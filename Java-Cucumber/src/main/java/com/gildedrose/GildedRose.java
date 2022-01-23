@@ -15,8 +15,8 @@ class GildedRose {
             Item item = items[i];
 
             if (itemMatches(item, ITEM__AGED_BRIE)) {
-                increaseQualityByOneIfLessThanMax(item);
                 decreaseSellInByOne(item);
+                increaseQualityByOneIfLessThanMax(item);
                 if (item.sellIn < 0) {
                     increaseQualityByOneIfLessThanMax(item);
                 }
