@@ -38,16 +38,18 @@ class GildedRose {
             } else if (itemMatches(item, ITEM__SULFURAS)) {
                 // We do nothing
             } else {
-                if (item.quality > 0) {
-                    decreaseQualityByOne(item);
-                }
+                decreaseQualityByOneIfGreaterThanMin(item);
                 decreaseSellInByOne(item);
                 if (item.sellIn < 0) {
-                    if (item.quality > 0) {
-                        decreaseQualityByOne(item);
-                    }
+                    decreaseQualityByOneIfGreaterThanMin(item);
                 }
             }
+        }
+    }
+
+    private void decreaseQualityByOneIfGreaterThanMin(Item item) {
+        if (item.quality > 0) {
+            item.quality = item.quality - 1;
         }
     }
 
@@ -63,10 +65,6 @@ class GildedRose {
 
     private void decreaseSellInByOne(Item item) {
         item.sellIn = item.sellIn - 1;
-    }
-
-    private void decreaseQualityByOne(Item item) {
-        item.quality = item.quality - 1;
     }
 
     private void increaseQualityByOne(Item item) {
