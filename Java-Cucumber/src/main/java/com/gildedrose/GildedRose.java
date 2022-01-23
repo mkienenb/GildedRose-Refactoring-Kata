@@ -59,7 +59,7 @@ class GildedRose {
 
     private void increaseQualityByOneIfLessThanMax(Item item) {
         if (item.quality < MAXIMUM_QUALITY) {
-            increaseQualityByOne(item);
+            item.quality = item.quality + 1;
         }
     }
 
@@ -69,9 +69,5 @@ class GildedRose {
 
     private void decreaseSellInByOne(Item item) {
         item.sellIn = item.sellIn - 1;
-    }
-
-    private void increaseQualityByOne(Item item) {
-        item.quality = item.quality + 1;
     }
 }
