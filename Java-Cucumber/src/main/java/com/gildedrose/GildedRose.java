@@ -16,8 +16,10 @@ class GildedRose {
 
             if (itemMatches(item, ITEM__AGED_BRIE)) {
                 decreaseSellInByOne(item);
-                increaseQualityByOneIfLessThanMax(item);
                 if (item.sellIn < 0) {
+                    increaseQualityByOneIfLessThanMax(item);
+                    increaseQualityByOneIfLessThanMax(item);
+                } else {
                     increaseQualityByOneIfLessThanMax(item);
                 }
             } else if (itemMatches(item, ITEM__BACKSTAGE_PASSES)) {
@@ -39,8 +41,10 @@ class GildedRose {
                 // We do nothing
             } else {
                 decreaseSellInByOne(item);
-                decreaseQualityByOneIfGreaterThanMin(item);
                 if (item.sellIn < 0) {
+                    decreaseQualityByOneIfGreaterThanMin(item);
+                    decreaseQualityByOneIfGreaterThanMin(item);
+                } else {
                     decreaseQualityByOneIfGreaterThanMin(item);
                 }
             }
