@@ -31,6 +31,7 @@ class GildedRose {
                     increaseQualityByOneIfLessThanMax(item);
                 } else if (item.sellIn < 11) {
                     increaseQualityByOneIfLessThanMax(item);
+                } else {
                 }
                 decreaseSellInByOne(item);
                 setQualityToZeroIfSellInTimeReached(item);
