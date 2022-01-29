@@ -29,7 +29,7 @@ class GildedRose {
                     increaseQualityByOneIfLessThanMax(item);
                     increaseQualityByOneIfLessThanMax(item);
                     increaseQualityByOneIfLessThanMax(item);
-                } else if (item.sellIn < 11) {
+                } else if (item.sellIn <= 10) {
                     increaseQualityByOneIfLessThanMax(item);
                     increaseQualityByOneIfLessThanMax(item);
                 } else {
