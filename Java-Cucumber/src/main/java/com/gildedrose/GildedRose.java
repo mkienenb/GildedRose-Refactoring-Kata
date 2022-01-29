@@ -18,7 +18,7 @@ class GildedRose {
 
             if (itemMatches(item, ITEM__AGED_BRIE)) {
                 decreaseSellInByOne(item);
-                if (item.sellIn < 0) {
+                if (hasItemReachedSellByTime(item)) {
                     increaseQualityByOneIfLessThanMax(item);
                     increaseQualityByOneIfLessThanMax(item);
                 } else {
@@ -38,7 +38,7 @@ class GildedRose {
                 // Nothing happens
             } else {
                 decreaseSellInByOne(item);
-                if (item.sellIn < 0) {
+                if (hasItemReachedSellByTime(item)) {
                     decreaseQualityByOneIfGreaterThanMin(item);
                     decreaseQualityByOneIfGreaterThanMin(item);
                 } else {
@@ -48,8 +48,12 @@ class GildedRose {
         }
     }
 
+    private boolean hasItemReachedSellByTime(Item item) {
+        return item.sellIn < 0;
+    }
+
     private void setQualityToZeroIfSellInReachedZero(Item item) {
-        if (item.sellIn < 0) {
+        if (hasItemReachedSellByTime(item)) {
             item.quality = 0;
         }
     }
