@@ -33,7 +33,7 @@ class GildedRose {
                     increaseQualityByOneIfLessThanMax(item);
                 }
                 decreaseSellInByOne(item);
-                setQualityToZeroIfSellInReachedZero(item);
+                setQualityToZeroIfSellInTimeReached(item);
             } else if (itemMatches(item, ITEM__SULFURAS)) {
                 // Nothing happens
             } else {
@@ -52,7 +52,7 @@ class GildedRose {
         return item.sellIn < 0;
     }
 
-    private void setQualityToZeroIfSellInReachedZero(Item item) {
+    private void setQualityToZeroIfSellInTimeReached(Item item) {
         if (hasItemReachedSellByTime(item)) {
             item.quality = 0;
         }
