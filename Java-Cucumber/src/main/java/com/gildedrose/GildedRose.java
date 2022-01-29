@@ -26,10 +26,10 @@ class GildedRose {
                 }
             } else if (itemMatches(item, ITEM__BACKSTAGE_PASSES)) {
                 increaseQualityByOneIfLessThanMax(item);
-                if (item.sellIn < 11) {
+                if (item.sellIn < 6) {
                     increaseQualityByOneIfLessThanMax(item);
                 }
-                if (item.sellIn < 6) {
+                if (item.sellIn < 11) {
                     increaseQualityByOneIfLessThanMax(item);
                 }
                 decreaseSellInByOne(item);
