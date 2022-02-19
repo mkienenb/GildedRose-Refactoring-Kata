@@ -1,4 +1,4 @@
-package com.gildedrose;
+package com.gildedrose.item;
 
 public class GenericItem extends UpdateableItem {
     public GenericItem(String name, int sellIn, int quality) {

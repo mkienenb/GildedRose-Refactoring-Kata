@@ -1,4 +1,4 @@
-package com.gildedrose;
+package com.gildedrose.item;
 
 public class AgedBrieItem extends UpdateableItem {
     public static final String ITEM_NAME__AGED_BRIE = "Aged Brie";
