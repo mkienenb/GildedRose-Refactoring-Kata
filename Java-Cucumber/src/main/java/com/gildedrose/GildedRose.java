@@ -1,9 +1,10 @@
 package com.gildedrose;
 
+import static com.gildedrose.AgedBrieItem.ITEM_NAME__AGED_BRIE;
+import static com.gildedrose.BackstagePassesItem.ITEM_NAME__BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT;
+import static com.gildedrose.SulfurasItem.ITEM_NAME__SULFURAS_HAND_OF_RAGNAROS;
+
 class GildedRose {
-    public static final String ITEM_NAME__AGED_BRIE = "Aged Brie";
-    public static final String ITEM_NAME__BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT = "Backstage passes to a TAFKAL80ETC concert";
-    public static final String ITEM_NAME__SULFURAS_HAND_OF_RAGNAROS = "Sulfuras, Hand of Ragnaros";
     Item[] items;
 
     public GildedRose(Item[] items) {
