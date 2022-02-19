@@ -1,23 +1,25 @@
 package com.gildedrose.item;
 
+import com.gildedrose.Item;
+
 public class AgedBrieItem extends UpdateableItem {
     public static final String ITEM_NAME__AGED_BRIE = "Aged Brie";
 
-    public AgedBrieItem(int sellIn, int quality) {
-        super(ITEM_NAME__AGED_BRIE, sellIn, quality);
+    public AgedBrieItem(Item item) {
+        super(item);
     }
 
     @Override
     public void updateQualityForItem() {
-        if (quality < 50) {
-            quality = quality + 1;
+        if (item.quality < 50) {
+            item.quality = item.quality + 1;
         }
 
-        sellIn = sellIn - 1;
+        item.sellIn = item.sellIn - 1;
 
-        if (sellIn < 0) {
-            if (quality < 50) {
-                quality = quality + 1;
+        if (item.sellIn < 0) {
+            if (item.quality < 50) {
+                item.quality = item.quality + 1;
             }
         }
     }
