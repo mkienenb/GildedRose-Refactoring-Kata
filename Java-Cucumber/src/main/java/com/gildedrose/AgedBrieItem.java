@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-public class AgedBrieItem extends Item {
+public class AgedBrieItem extends UpdateableItem {
     public static final String ITEM_NAME__AGED_BRIE = "Aged Brie";
 
     public AgedBrieItem(int sellIn, int quality) {

@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-public class BackstagePassesItem extends Item {
+public class BackstagePassesItem extends UpdateableItem {
     public static final String ITEM_NAME__BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT = "Backstage passes to a TAFKAL80ETC concert";
 
     public BackstagePassesItem(int sellIn, int quality) {

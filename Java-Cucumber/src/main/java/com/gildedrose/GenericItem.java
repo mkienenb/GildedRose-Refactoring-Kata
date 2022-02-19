@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-public class GenericItem extends Item {
+public class GenericItem extends UpdateableItem {
     public GenericItem(String name, int sellIn, int quality) {
         super(name, sellIn, quality);
     }
